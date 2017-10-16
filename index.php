@@ -3,8 +3,6 @@
     <head>
         <meta charset="utf-8"/>
         <title>Data Design Project</title>
-        <!-- i have no idea why i added a stylesheet -->
-        <link rel="stylesheet" href="style.css" type="text/css"/>
     </head>
     <body>
         <header>
