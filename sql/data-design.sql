@@ -8,3 +8,16 @@ CREATE TABLE profile (
   UNIQUE(profileName)
 );
 
+CREATE TABLE post (
+  postID BINARY(16) NOT NULL,
+  postProfileID BINARY(16) NOT NULL,
+  postContent VARCHAR(140) NOT NULL, -- not sure what value to assign here
+  postDate DATETIME(6)
+);
+
+CREATE TABLE comment (
+  commentID BINARY(16),
+  commentProfileID BINARY(16),
+  commentContent VARCHAR(140), -- again not sure what to put in here
+  commentDate DATETIME(6)
+);
