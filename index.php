@@ -8,7 +8,7 @@
     <body>
         <p>
             <h2>Persona</h2>
-            James is a user with topics to talk about with members of his community. James enjoys photography and hanging out in bars with his friends drinking craft beers.
+            James is a user with topics to talk about with members of his community. James enjoys photography and hanging out in bars with his friends drinking craft beers. He wants to connect and talk with members of his community about popular hangouts and the latest news.
         </p>
         <p>
             <h2>Use Case</h2>
@@ -17,15 +17,15 @@
         <p>
             <h2>Interaction Flow</h2>
             <ol>
-                <li></li>
-                <li></li>
+                <li>I write and send a post</li>
+                <li>The browser displays the post</li>
             </ol>
         </p>
         <p>
             <h1>Conceptual Model</h1>
         </p>
         <p>
-            <h1>profile</h1>
+            <h2>profile</h2>
             <ul>
                 <li>profileID</li>
                 <li>profileEmail</li>
@@ -35,7 +35,7 @@
             </ul>
         </p>
         <p>
-            <h1>post</h1>
+            <h2>post</h2>
             <ul>
                 <li>postID</li>
                 <li>postProfileID</li>
@@ -45,9 +45,12 @@
             </ul>
         </p>
         <p>
-            <h1>comment</h1>
+            <h3>comment</h3>
             <ul>
-                <li></li>
+                <li>commentID</li>
+                <li>commentProfileID</li>
+                <li>commentDate</li>
+                <li>commentUpvotes</li>
             </ul>
         </p>
     </body>
