@@ -14,7 +14,10 @@
                 <li>28 years old</li>
             </ul>
             <h3>What</h3>
-            <p><strong>Profession:</strong></p>
+            <p><strong>Profession:</strong>Freelance web designer</p>
+            <p><strong>Technology:</strong>The latest and greatest MacBook Pro and iPhone, as well as a brand new high resolution digital camera.</p>
+            <p><strong>Behavior:</strong>James is fairly busy with his work, any free time will often be spent working on his projects, but he still has some time to invest in his hobbies.</p>
+            <p><strong>Goals:</strong>James wants to talk to people like himself online about his hobbies.</p>
         </p>
         <!--James is a user with topics to talk about with members of his community. James enjoys photography and hanging out in bars with his friends drinking craft beers. He wants to connect and talk with members of his community about popular hangouts and the latest news.-->
         <p>
@@ -48,7 +51,6 @@
                 <li>postProfileID (foreign key)</li>
                 <li>postDate</li>
                 <li>postContent</li>
-                <li>postUpvotes</li>
             </ul>
         </p>
         <p>
@@ -57,7 +59,6 @@
                 <li>commentID (primary key)</li>
                 <li>commentProfileID (foreign key)</li>
                 <li>commentDate</li>
-                <li>commentUpvotes</li>
             </ul>
         </p>
         <p>
