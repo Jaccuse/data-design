@@ -6,39 +6,46 @@
         <link rel="stylesheet" href="style.css" type="text/css"/>
     </head>
     <body>
+        <h2>Persona</h2>
         <p>
-            <h2>Persona</h2>
-            James is a user with topics to talk about with members of his community. James enjoys photography and hanging out in bars with his friends drinking craft beers. He wants to connect and talk with members of his community about popular hangouts and the latest news.
+            <h3>Who</h3>
+            <ul>
+                <li>James</li>
+                <li>28 years old</li>
+            </ul>
+            <h3>What</h3>
+            <p><strong>Profession:</strong></p>
         </p>
+        <!--James is a user with topics to talk about with members of his community. James enjoys photography and hanging out in bars with his friends drinking craft beers. He wants to connect and talk with members of his community about popular hangouts and the latest news.-->
         <p>
-            <h2>Use Case</h2>
-            As a registered user, James wants to create a post.
+        <h2>Use Case</h2>
+        As a registered user, James wants to create posts about good drinking spots.
         </p>
         <p>
             <h2>Interaction Flow</h2>
             <ol>
-                <li>I write and send a post</li>
-                <li>The browser displays the post</li>
+                <li>I click the create post button</li>
+                <li>The browser displays the post create field</li>
+                <li>I write and submit the post</li>
+                <li>The browser displays the post's page</li>
             </ol>
         </p>
+            <h2>Conceptual Model</h2>
         <p>
-            <h1>Conceptual Model</h1>
-        </p>
-        <p>
-            <h2>profile</h2>
+            <h3>profile</h3>
             <ul>
-                <li>profileID</li>
+                <li>profileID (primary key)</li>
                 <li>profileEmail</li>
                 <li>profileName</li>
-                <li>profileSalt</li>
-                <li>profileHash</li>
+                <li>profileSalt (for account password)</li>
+                <li>profileHash (for account password)</li>
             </ul>
         </p>
         <p>
-            <h2>post</h2>
+            <h3>post</h3>
             <ul>
-                <li>postID</li>
-                <li>postProfileID</li>
+                <li>postID (primary key)</li>
+                <li>postProfileID (foreign key)</li>
                 <li>postDate</li>
                 <li>postContent</li>
                 <li>postUpvotes</li>
@@ -47,10 +54,19 @@
         <p>
             <h3>comment</h3>
             <ul>
-                <li>commentID</li>
-                <li>commentProfileID</li>
+                <li>commentID (primary key)</li>
+                <li>commentProfileID (foreign key)</li>
                 <li>commentDate</li>
                 <li>commentUpvotes</li>
+            </ul>
+        </p>
+        <p>
+            <h2>Relationships</h2>
+            <ul>
+                <li>one profile can have many posts (1 to n)</li>
+                <li>one post can have many comments (1 to n)</li>
+                <li>one comment can have many comments (1 to n)</li>
+                <!--why did i end up with the same kind of relationship every time here-->
             </ul>
         </p>
     </body>
