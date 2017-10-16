@@ -3,11 +3,12 @@
     <head>
         <meta charset="utf-8"/>
         <title>Data Design Project</title>
+        <link rel="stylesheet" href="style.css" type="text/css"/>
     </head>
     <body>
         <p>
             <h2>Persona</h2>
-            James has average problems. James wants to complain about them to random people.
+            James is a user with topics to talk about with members of his community.
         </p>
         <p>
             <h2>Use Case</h2>
@@ -16,8 +17,7 @@
         <p>
             <h2>Interaction Flow</h2>
             <ol>
-                <li>I type a post and click send</li>
-                <li>The site receives the post and displays it</li>
+                <li></li>
             </ol>
         </p>
     </body>
