@@ -5,19 +5,25 @@ CREATE TABLE profile (
   profileHash CHAR(128) NOT NULL,
   profileSalt CHAR(64) NOT NULL,
   UNIQUE(profileEmail),
-  UNIQUE(profileName)
+  UNIQUE(profileName),
+  PRIMARY KEY(profileID)
 );
 
 CREATE TABLE post (
   postID BINARY(16) NOT NULL,
+  INDEX(postProfileID),
   postProfileID BINARY(16) NOT NULL,
   postContent VARCHAR(140) NOT NULL, -- not sure what value to assign here
-  postDate DATETIME(6)
+  postDate DATETIME(6),
+  FOREIGN KEY(postProfileID),
+  FOREIGN KEY(postID)
 );
 
 CREATE TABLE comment (
   commentID BINARY(16),
   commentProfileID BINARY(16),
   commentContent VARCHAR(140), -- again not sure what to put in here
-  commentDate DATETIME(6)
+  commentDate DATETIME(6),
+  INDEX(commentProfileID),
+  INDEX(commentID)
 );
