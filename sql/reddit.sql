@@ -6,7 +6,7 @@ CREATE TABLE profile (
   profileSalt CHAR(64) NOT NULL,
   UNIQUE(profileEmail),
   UNIQUE(profileName),
-  PRIMARY KEY(profileID),
+  PRIMARY KEY(profileID)
 );
 
 CREATE TABLE post (
@@ -15,7 +15,7 @@ CREATE TABLE post (
   postProfileID BINARY(16) NOT NULL,
   postContent VARCHAR(140) NOT NULL,
   postDate DATETIME(6),
-  FOREIGN KEY(postProfileID),
+  FOREIGN KEY(postProfileID)
 );
 
 CREATE TABLE comment (
@@ -24,12 +24,16 @@ CREATE TABLE comment (
   commentContent VARCHAR(140),
   commentDate DATETIME(6),
   INDEX(commentProfileID),
-  INDEX(commentID),
+  INDEX(commentID)
 
 );
 
+-- I'm not sure what values to assign these
+
 INSERT INTO profile (profileName, profileEmail) VALUES (1, 2);
+
 INSERT INTO post (postContent) VALUES (5); -- what am i doing
+
 INSERT INTO comment (commentContent) VALUES (7);
 
 UPDATE profile
@@ -44,15 +48,15 @@ UPDATE comment
 SET commentID = 3,
 WHERE commentID = 5;
 
-SELECT profileID,
+SELECT profileID
 FROM profile
 WHERE profileID = 6;
 
-SELECT postProfileID,
+SELECT postProfileID
 FROM post
 WHERE postProfileID = 9;
 
-SELECT comment,
+SELECT 'comment'
 FROM comment
 WHERE commentID = 8;
 
