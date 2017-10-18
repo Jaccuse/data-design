@@ -44,3 +44,20 @@ UPDATE comment
 SET commentID = 3,
 WHERE commentID = 5;
 
+SELECT profileID,
+FROM profile
+WHERE profileID = 6;
+
+SELECT postProfileID,
+FROM post
+WHERE postProfileID = 9;
+
+SELECT comment,
+FROM comment
+WHERE commentID = 8;
+
+DELETE FROM profile WHERE profileID = 9;
+
+DELETE FROM post WHERE postID = 5;
+
+DELETE FROM comment WHERE commentID = 9;
