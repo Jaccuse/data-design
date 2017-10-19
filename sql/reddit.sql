@@ -11,21 +11,20 @@ CREATE TABLE profile (
 
 CREATE TABLE post (
   postID BINARY(16) NOT NULL,
-  INDEX(postProfileID),
   postProfileID BINARY(16) NOT NULL,
   postContent VARCHAR(140) NOT NULL,
-  postDate DATETIME(6),
-  FOREIGN KEY(postProfileID)
+  postDate DATETIME(6) NOT NULL,
+  INDEX (postContent),
+  FOREIGN KEY(postProfileID) REFERENCES profile(profileID)
 );
 
 CREATE TABLE comment (
-  commentID BINARY(16),
-  commentProfileID BINARY(16),
-  commentContent VARCHAR(140),
-  commentDate DATETIME(6),
+  commentID BINARY(16) NOT NULL,
+  commentProfileID BINARY(16) NOT NULL,
+  commentContent VARCHAR(140) NOT NULL,
+  commentDate DATETIME(6) NOT NULL,
   INDEX(commentProfileID),
   INDEX(commentID)
-
 );
 
 -- I'm not sure what values to assign these
@@ -36,29 +35,17 @@ INSERT INTO post (postContent) VALUES (5); -- what am i doing
 
 INSERT INTO comment (commentContent) VALUES (7);
 
-UPDATE profile
-SET profileID = 2,
-WHERE profileID = 1;
+UPDATE profile SET profileID = 2 WHERE profileID = 1;
 
-UPDATE post
-SET postProfileID = 2,
-WHERE postProfileID = 1;
+UPDATE post SET postProfileID = 2 WHERE postProfileID = 1;
 
-UPDATE comment
-SET commentID = 3,
-WHERE commentID = 5;
+UPDATE comment SET commentID = 3 WHERE commentID = 5;
 
-SELECT profileID
-FROM profile
-WHERE profileID = 6;
+SELECT profileID FROM profile WHERE profileID = 6;
 
-SELECT postProfileID
-FROM post
-WHERE postProfileID = 9;
+SELECT postProfileID FROM post WHERE postProfileID = 9;
 
-SELECT 'comment'
-FROM comment
-WHERE commentID = 8;
+SELECT 'comment' FROM comment WHERE commentID = 8;
 
 DELETE FROM profile WHERE profileID = 9;
 
