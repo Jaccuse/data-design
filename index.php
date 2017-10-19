@@ -42,7 +42,7 @@
             <p>
                 <h3>profile</h3>
                 <ul>
-                    <li>profileID (primary key)</li>
+                    <li>profileId (primary key)</li>
                     <li>profileEmail</li>
                     <li>profileName</li>
                     <li>profileSalt (for account password)</li>
@@ -52,8 +52,8 @@
             <p>
                 <h3>post</h3>
                 <ul>
-                    <li>postID (primary key)</li>
-                    <li>postProfileID (foreign key)</li>
+                    <li>postId (primary key)</li>
+                    <li>postProfileId (foreign key)</li>
                     <li>postDate</li>
                     <li>postContent</li>
                 </ul>
@@ -61,8 +61,10 @@
             <p>
                 <h3>comment</h3>
                 <ul>
-                    <li>commentID (primary key)</li>
-                    <li>commentProfileID (foreign key)</li>
+                    <li>commentId (primary key)</li>
+                    <li>commentProfileId (foreign key)</li>
+                    <li>commentCommentId (foreign key)</li>
+                    <li>commentPostId</li>
                     <li>commentDate</li>
                     <li>commentContent</li>
                 </ul>
