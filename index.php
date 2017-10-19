@@ -10,12 +10,12 @@
             <p>
                 <h3>Who</h3>
                 <p><strong>Name: </strong>James</p>
-                <p><strong>Age: </strong>28 years old</p>
+                <p><strong>Age: </strong>26 years old</p>
                 <h3>What</h3>
-                <p><strong>Profession: </strong>Freelance web designer</p>
-                <p><strong>Technology: </strong>The latest and greatest MacBook Pro and iPhone, as well as a brand new high resolution digital camera.</p>
-                <p><strong>Behavior: </strong>James is fairly busy with his work, any free time will often be spent working on his projects, but he still has some time to invest in his hobbies.</p>
-                <p><strong>Goals: </strong>James wants to talk to people like himself online about his hobbies.</p>
+                <p><strong>Profession: </strong>James is a former waiter and now works as a freelance web developer</p>
+                <p><strong>Technology: </strong>James uses an up-to-date MacBook and iPhone, as well as a brand new high resolution digital camera. As an avid user of the internet, he always intends to keep his hardware updated as new technology is released.</p>
+                <p><strong>Behavior: </strong>James is fairly busy with his work, his free time will often be spent working on his projects and hobbies, as well as spent surfing the web.</p>
+                <p><strong>Goals: </strong>James wants to connect with and talk to people around his age and post pictures for such people to see.</p>
             </p>
             <p>
                 <h2>Use Case</h2>
@@ -26,10 +26,16 @@
             <p>
                 <h2>Interaction Flow</h2>
                 <ol>
+                    <li>I log onto the website</li>
+                    <li>The browser displays the homepage</li>
+                    <li>I click login</li>
+                    <li>The browser displays the login dialog</li>
+                    <li>I enter my login information and click the confirmation button</li>
+                    <li>The browser takes me to my account's homepage</li>
                     <li>I click the create post button</li>
-                    <li>The browser displays the post create field</li>
-                    <li>I write and submit the post</li>
-                    <li>The browser displays the post's page</li>
+                    <li>The browser displays the post creation field</li>
+                    <li>I write and submit a post</li>
+                    <li>The browser redirects me to the post's page</li>
                 </ol>
             </p>
                 <h2>Conceptual Model</h2>
@@ -58,6 +64,7 @@
                     <li>commentID (primary key)</li>
                     <li>commentProfileID (foreign key)</li>
                     <li>commentDate</li>
+                    <li>commentContent</li>
                 </ul>
             </p>
             <p>
@@ -66,7 +73,7 @@
                     <li>one profile can have many posts (1 to n)</li>
                     <li>one post can have many comments (1 to n)</li>
                     <li>one comment can have many comments (1 to n)</li>
-                    <!-- why did i end up with the same kind of relationship every time here -->
+                    <!-- why did i end up with the same kind of relationship every time here-->
                 </ul>
             </p>
         </main>
