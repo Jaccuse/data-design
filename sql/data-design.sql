@@ -1,3 +1,7 @@
+-- DROP TABLE IF EXISTS profile;
+-- DROP TABLE IF EXISTS post;
+-- DROP TABLE IF EXISTS comment;
+
 CREATE TABLE profile (
   profileId BINARY (16) NOT NULL,
   profileEmail VARCHAR(128) NOT NULL,
