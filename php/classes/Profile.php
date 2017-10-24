@@ -39,8 +39,7 @@ class user {
      * @throws \TypeError if data types violate type hits
      * @throws \Exception if some other exception occurs
      **/
-    public function __construct($newUserId, string $newUserEmail, string $newUserName, string $newUserHash, string $newUserSalt)
-    {
+    public function __construct($newUserId, string $newUserEmail, string $newUserName, string $newUserHash, string $newUserSalt) {
         try {
             $this->setUserId($newUserId);
             $this->setUserEmail($newUserEmail);
@@ -58,8 +57,7 @@ class user {
          * @return string Uuid value of userId
          **/
         public
-        function getUserId(): Uuid
-        {
+        function getUserId(): Uuid {
             return ($this->userId);
         }
 
@@ -69,8 +67,7 @@ class user {
          * @return $newUserId new value for the user's Id
          */
         public
-        function setUserId($newUserId)
-        {
+        function setUserId($newUserId) {
             try {
                 $uuid = self::validateUuid($newUserId);
             } catch (\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
@@ -86,8 +83,7 @@ class user {
          * @return string Email of the user
          **/
         public
-        function getUserEmail(): string
-        {
+        function getUserEmail(): string {
             return $this->userEmail;
         }
 
@@ -95,8 +91,7 @@ class user {
          * mutator for userEmail
          **/
         public
-        function setUserEmail(string $newUserEmail): void
-        {
+        function setUserEmail(string $newUserEmail) : void {
             $newUserEmail = trim($newUserEmail);
             $newUserEmail = filter_var($newUserEmail, FILTER_VALIDATE_EMAIL);
             if (empty($newUserEmail) == true) {
@@ -106,5 +101,56 @@ class user {
             $this->userEmail = $newUserEmail;
         }
 
+        /**
+         * accessor method for userName
+         *
+         * @return string Name of the user
+         **/
+        public
+        function getUserName() : string {
+            return $this->userName;
+        }
+
+        /**
+         * mutator for userName
+         **/
+        public
+        function setUserName(string $newUserName) : void {
+            $newUserName = trim($newUserName);
+            $newUserName = filter_var($newUserName, FILTER_SANITIZE_STRING);
+            if (empty($newUserName) == true) {
+                throw(new \InvalidArgumentException("Username field is empty or insecure"));
+            }
+            if (strlen($newUserName > 32)) {
+                throw(new \RangeException("Username too large"));
+            }
+            $this->userName = $newUserName;
+        }
+
+        /**
+         * accessor method for userHash
+         *
+         * @return string Hash of the user
+         **/
+        public
+        function getUserHash() : string {
+            return $this->userHash;
+        }
+
+        /**
+         * mutator for userHash
+         **/
+        public
+        function setUserHash(string $newUserHash) : void {
+            $newUserHash = trim($newUserHash);
+            $newUserHash = strtolower($newUserHash);
+            if (!ctype_xdigit($newUserHash)) {
+                throw (new \InvalidArgumentException("Hash is not in hexit form"));
+            }
+            if (strlen($newUserHash) !== 128) {
+                throw (new \RangeException("User hash length is invalid"));
+            }
+            $this->userHash = $newUserHash;
+        }
     }
 }
