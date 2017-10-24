@@ -47,14 +47,33 @@ class user {
             $this->setUserHash($newUserHash);
             $this->setUserSalt($newUserSalt);
         }
-        catch (\InvalidArgumentException|\RangeException|\Exception|\TypeError $exception) {
+        catch (\InvalidArgumentException| \RangeException| \Exception| \TypeError $exception) {
             $exceptionType = get_class($exception);
             throw (new $exceptionType($exception->getMessage(), 0, $exception));
         }
+
         /**
          * accessor method for userId
          *
          * @return string Uuid value of userId
          **/
+        public function getUserId() : Uuid {
+            return ($this->userId);
+        }
+
+        /**
+         * mutator for userId
+         *
+         * @return $newUserId new value for the user's Id
+         */
+        public function setUserId($newUserId) {
+            try {
+                $uuid = self::validateUuid($newUserId);
+            } catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
+                $exceptionType = get_class($exception);
+                throw(new $exceptionType($exception->getMessage(), 0, $exception));
+            }
+            $this->userId = $uuid;
+        }
     }
 }
