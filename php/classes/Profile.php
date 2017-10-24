@@ -38,18 +38,23 @@ class user {
      * @throws \RangeException if data values are out of bounds
      * @throws \TypeError if data types violate type hits
      * @throws \Exception if some other exception occurs
-     */
+     **/
     public function __construct($newUserId, string $newUserEmail, string $newUserName, string $newUserHash, string $newUserSalt){
         try {
-            $this->setUserId($newUserId)
-            $this->setUserEmail($newUserEmail)
-            $this->setUserName($newUserName)
-            $this->setUserHash($newUserHash)
-            $this->setUserSalt($newUserSalt)
+            $this->setUserId($newUserId);
+            $this->setUserEmail($newUserEmail);
+            $this->setUserName($newUserName);
+            $this->setUserHash($newUserHash);
+            $this->setUserSalt($newUserSalt);
         }
         catch (\InvalidArgumentException|\RangeException|\Exception|\TypeError $exception) {
             $exceptionType = get_class($exception);
-
+            throw (new $exceptionType($exception->getMessage(), 0, $exception));
         }
+        /**
+         * accessor method for userId
+         *
+         * @return string Uuid value of userId
+         **/
     }
 }
