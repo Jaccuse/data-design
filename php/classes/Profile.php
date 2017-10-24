@@ -39,15 +39,15 @@ class user {
      * @throws \TypeError if data types violate type hits
      * @throws \Exception if some other exception occurs
      **/
-    public function __construct($newUserId, string $newUserEmail, string $newUserName, string $newUserHash, string $newUserSalt){
+    public function __construct($newUserId, string $newUserEmail, string $newUserName, string $newUserHash, string $newUserSalt)
+    {
         try {
             $this->setUserId($newUserId);
             $this->setUserEmail($newUserEmail);
             $this->setUserName($newUserName);
             $this->setUserHash($newUserHash);
             $this->setUserSalt($newUserSalt);
-        }
-        catch (\InvalidArgumentException| \RangeException| \Exception| \TypeError $exception) {
+        } catch (\InvalidArgumentException| \RangeException| \Exception| \TypeError $exception) {
             $exceptionType = get_class($exception);
             throw (new $exceptionType($exception->getMessage(), 0, $exception));
         }
@@ -57,7 +57,9 @@ class user {
          *
          * @return string Uuid value of userId
          **/
-        public function getUserId() : Uuid {
+        public
+        function getUserId(): Uuid
+        {
             return ($this->userId);
         }
 
@@ -66,14 +68,43 @@ class user {
          *
          * @return $newUserId new value for the user's Id
          */
-        public function setUserId($newUserId) {
+        public
+        function setUserId($newUserId)
+        {
             try {
                 $uuid = self::validateUuid($newUserId);
-            } catch(\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
+            } catch (\InvalidArgumentException | \RangeException | \Exception | \TypeError $exception) {
                 $exceptionType = get_class($exception);
-                throw(new $exceptionType($exception->getMessage(), 0, $exception));
+                throw (new $exceptionType($exception->getMessage(), 0, $exception));
             }
-            $this->userId = $uuid;
+            return $this->userId = $uuid;
         }
+
+        /**
+         * accessor method for userEmail
+         *
+         * @return string Email of the user
+         **/
+        public
+        function getUserEmail(): string
+        {
+            return $this->userEmail;
+        }
+
+        /**
+         * mutator for userEmail
+         **/
+        public
+        function setUserEmail(string $newUserEmail): void
+        {
+            $newUserEmail = trim($newUserEmail);
+            $newUserEmail = filter_var($newUserEmail, FILTER_VALIDATE_EMAIL);
+            if (empty($newUserEmail) == true) {
+                throw(new \InvalidArgumentException("Email is invalid or insecure"));
+            }
+
+            $this->userEmail = $newUserEmail;
+        }
+
     }
 }
