@@ -185,6 +185,18 @@ class user {
             $this->userSalt = $newUserSalt;
         }
 
-
+        /**
+         * Insert a user into the profile table
+         *
+         * @param \PDO $pdo connection object for PDO
+         * @throws \PDOException throws an exception when PDO-mySQL connection errors occur
+         * @throws \TypeError throws something I'm not actually sure ¯\_(ツ)_/¯
+         */
+        public function delete(\PDO $pdo) : void {
+            $query = "DELETE FROM `profile` WHERE profileId = :userId";
+            $statement = $pdo->prepare($query);
+            $parameters = ["profileId" => $this->userId->getBytes()];
+            $statement->execute($parameters);
+        }
     }
 }
