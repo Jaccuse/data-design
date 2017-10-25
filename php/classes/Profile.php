@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * This class represents an individual user on a site
+ *
+ * @author Jack Arnold
+ */
 class user {
     /**
      * this is the user primary key
@@ -152,5 +158,33 @@ class user {
             }
             $this->userHash = $newUserHash;
         }
+
+        /**
+         * accessor method for userSalt
+         *
+         * @return string Salt of the user
+         **/
+        public
+        function getUserSalt() : string {
+            return $this->userSalt;
+        }
+
+        /**
+         * mutator for userSalt
+         **/
+        public
+        function setUserSalt(string $newUserSalt) : void {
+            $newUserSalt = trim($newUserSalt);
+            $newUserSalt = strtolower($newUserSalt);
+            if (!ctype_xdigit($newUserSalt)) {
+                throw (new \InvalidArgumentException("Salt is not in hexit form"));
+            }
+            if (strlen($newUserSalt) !== 64) {
+                throw (new \RangeException("User Salt length is invalid"));
+            }
+            $this->userSalt = $newUserSalt;
+        }
+
+
     }
 }
