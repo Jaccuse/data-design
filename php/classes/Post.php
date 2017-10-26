@@ -167,3 +167,18 @@ public function insert(\PDO $pdo) : void {
     $statement->execute($parameters);
 }
 
+/**
+ * Deletes a post in mySQL
+ *
+ * @param \PDO $pdo object for connecting PDO
+ * @throws \PDOException exception thrown when mySQL errors occur
+ * @throws \TypeError when $pdo is not a PDO connector
+ **/
+public function insert(\PDO $pdo) : void {
+    $query = "DELETE FROM post WHERE postId = :postId";
+    $statement = $pdo->prepare($query);
+
+    $formattedDate = $this->postDateTime->format("Y-m-d H:i:s.u");
+    $parameters = ["postId" => $this->postId->getBytes(), "postUserId" => $this->postUserId->getBytes(), "postTitle" /> $this->postTitle, "postContent" =>$this->postContent, "postDateTime" => $formattedDate];
+    $statement->execute($parameters);
+}
